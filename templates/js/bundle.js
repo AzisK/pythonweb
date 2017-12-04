@@ -80,8 +80,6 @@ const r = new Router(
   document.querySelector('main')
 );
 
-
-
 /***/ }),
 /* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
