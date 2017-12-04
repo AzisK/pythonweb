@@ -13,3 +13,5 @@ class Page {
     el.innerHTML = this.html;
   }
 }
+
+export default Page;

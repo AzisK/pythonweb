@@ -16,13 +16,11 @@ class Router {
   }
 
   async show(pageName) {
-    console.log(pageName);
-    console.log(this.routes);
     const page = this.routes[pageName];
-    console.log(page);
     await page.load();
     this.el.innerHTML = '';
     page.show(this.el);
   }
 }
 
+export default Router;

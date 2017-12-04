@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "build": "webpack"
+  },
+  "name": "pythonweb",
+  "description": "Comfy accounting",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AzisK/pythonweb.git"
+  },
+  "keywords": [
+    "accounting"
+  ],
+  "author": "Azis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AzisK/pythonweb/issues"
+  },
+  "homepage": "https://github.com/AzisK/pythonweb#readme"
+}
