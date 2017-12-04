@@ -6,5 +6,13 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'templates/js')
   },
-  watch: true
+  watch: true,
+  module: {
+  	loaders: [
+  		{
+  			test: /\.css$/,
+  			loader: 'style-loader!css-loader'
+  		}
+  	]
+  }
 };

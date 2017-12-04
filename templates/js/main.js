@@ -1,3 +1,5 @@
+require('../css/style.css');
+
 var Router = require('./router').default;
 var Layout = require('./layout').default;
 var Page = require('./page').default;
