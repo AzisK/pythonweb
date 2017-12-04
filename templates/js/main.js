@@ -1,5 +1,4 @@
 require('../scss/style.scss');
-
 var Router = require('./router').default;
 var Layout = require('./layout').default;
 var Page = require('./page').default;

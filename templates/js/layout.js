@@ -4,7 +4,10 @@ class Layout {
   }
 
   load() {
-    return Promise.all(this.pages.map(page => page.load()));
+    return Promise.all(
+      this.pages.map(
+        page => page.load()
+      ));
   }
 
   show(el) {
