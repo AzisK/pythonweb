@@ -103,8 +103,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../node_modules/css-loader/index.js!./style.css", function() {
-			var newContent = require("!!../../node_modules/css-loader/index.js!./style.css");
+		module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./style.scss", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/sass-loader/lib/loader.js!./style.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -122,7 +122,7 @@ exports = module.exports = __webpack_require__(3)(undefined);
 
 
 // module
-exports.push([module.i, "html {\r\n  position: relative;\r\n  height: 100%;\r\n  width: 100%; }\r\n\r\nbody {\r\n  height: 100%;\r\n  width: 100%;\r\n  margin: 0; }\r\n\r\n.main {\r\n  height: 100%;\r\n  width: 90%;\r\n  margin: auto;\r\n  padding-top: 30px; }\r\n\r\nh1 {\r\n  display: inline;\r\n  vertical-align: middle; }\r\n\r\nh3, h1 {\r\n  font-family: 'PT Sans', sans-serif;\r\n  margin: 0; }\r\n\r\nsvg {\r\n  width: 60px;\r\n  fill: #31c27c;\r\n  stroke-width: 2;\r\n  stroke: #fff;\r\n  stroke-linecap: round;\r\n  vertical-align: middle; }\r\n  svg :hover {\r\n    fill: #2aa268; }\r\n\r\n.nav {\r\n  border-radius: 20px;\r\n  padding: 4px;\r\n  margin-bottom: 20px;\r\n  box-shadow: 0 2px 10px #888;\r\n  display: flex;\r\n  justify-content: space-around; }\r\n\r\n.add {\r\n  border-radius: 20px;\r\n  padding: 4px 10px;\r\n  box-shadow: 0 2px 10px #888;\r\n  display: flex;\r\n  justify-content: space-around; }\r\n  .add svg {\r\n    width: 48px; }\r\n\r\n.input {\r\n  display: inline-block;\r\n  margin: 4px; }\r\n", ""]);
+exports.push([module.i, "html {\n  position: relative;\n  height: 100%;\n  width: 100%; }\n\nbody {\n  height: 100%;\n  width: 100%;\n  margin: 0; }\n\n.main {\n  height: 100%;\n  width: 90%;\n  margin: auto;\n  padding-top: 30px; }\n\nh1 {\n  display: inline;\n  vertical-align: middle; }\n\nh3, h1 {\n  font-family: 'PT Sans', sans-serif;\n  margin: 0; }\n\nsvg {\n  width: 60px;\n  fill: #31c27c;\n  stroke-width: 2;\n  stroke: #fff;\n  stroke-linecap: round;\n  vertical-align: middle; }\n  svg :hover {\n    fill: #2aa268; }\n\n.nav {\n  border-radius: 20px;\n  padding: 4px;\n  margin-bottom: 20px;\n  box-shadow: 0 2px 10px #888;\n  display: flex;\n  justify-content: space-around; }\n\n.add {\n  border-radius: 20px;\n  padding: 4px 10px;\n  box-shadow: 0 2px 10px #888;\n  display: flex;\n  justify-content: space-around; }\n  .add svg {\n    width: 48px; }\n\n.input {\n  display: inline-block;\n  margin: 4px; }\n", ""]);
 
 // exports
 
