@@ -957,15 +957,57 @@ process.umask = function() { return 0; };
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(5);
-var Router = __webpack_require__(10).default;
-var Layout = __webpack_require__(11).default;
-var Page = __webpack_require__(12).default;
+__webpack_require__(10);
 
-var r = new Router({
-  add: new Layout(new Page('nav.html'), new Page('add.html')),
-  search: new Layout(new Page('nav.html'), new Page('search.html')),
-  '#default': new Page('nav.html')
-}, document.querySelector('main'));
+var dateEl = document.getElementsByName("date")[0];
+var invoiceEl = document.getElementsByName("invoice")[0];
+var sumEl = document.getElementsByName("sum")[0];
+var companyEl = document.getElementsByName("company")[0];
+var pvmEl = document.getElementsByName("pvm")[0];
+var els = [dateEl, invoiceEl, sumEl, companyEl, pvmEl];
+var deal = {};
+
+var addDealEl = document.getElementsByClassName("add-deal")[0];
+
+var url = 'http://localhost:5000';
+
+function updateTaxes() {
+    var taxes = Math.round(this.value * 21) / 100;
+    pvmEl.value = taxes;
+}
+
+['paste', 'click', 'keyup'].forEach(function (evt) {
+    sumEl.addEventListener(evt, updateTaxes);
+});
+
+setCurrentDate(dateEl);
+
+addDealEl.onclick = function () {
+    updateValues();
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", url + '/adddeal', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(deal));
+};
+
+function updateValues() {
+    els.forEach(function (el) {
+        deal[el.name] = el.value;
+    });
+}
+
+function setCurrentDate(el) {
+    var currentDate = new Date();
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1;
+    var year = currentDate.getFullYear() + '';
+
+    if (month < 10) month = '0' + month;
+    if (day < 10) day = '0' + day;
+
+    el.value = year + '-' + month + '-' + day;
+}
 
 /***/ }),
 /* 5 */
@@ -1007,7 +1049,7 @@ exports = module.exports = __webpack_require__(7)(undefined);
 
 
 // module
-exports.push([module.i, "html {\n  position: relative;\n  height: 100%;\n  width: 100%; }\n\nbody {\n  height: 100%;\n  width: 100%;\n  margin: 0; }\n\n.main {\n  height: 100%;\n  width: 90%;\n  margin: auto;\n  padding-top: 30px; }\n\nh1 {\n  display: inline;\n  vertical-align: middle; }\n\nh3, h1 {\n  font-family: 'PT Sans', sans-serif;\n  margin: 0; }\n\nsvg {\n  width: 60px;\n  fill: #31c27c;\n  stroke-width: 2;\n  stroke: #fff;\n  stroke-linecap: round;\n  vertical-align: middle; }\n  svg :hover {\n    fill: #2aa268; }\n\n.nav {\n  border-radius: 20px;\n  padding: 4px;\n  margin-bottom: 20px;\n  box-shadow: 0 2px 10px #888;\n  display: flex;\n  justify-content: space-around; }\n\n.add {\n  border-radius: 20px;\n  padding: 4px 10px;\n  box-shadow: 0 2px 10px #888;\n  display: flex;\n  justify-content: space-around; }\n  .add svg {\n    width: 48px; }\n\n.input {\n  display: inline-block;\n  margin: 4px; }\n", ""]);
+exports.push([module.i, "html {\n  position: relative;\n  height: 100%;\n  width: 100%; }\n\nbody {\n  height: 100%;\n  width: 100%;\n  margin: 0; }\n\n.main {\n  height: 100%;\n  width: 90%;\n  margin: auto;\n  padding-top: 30px; }\n\nh1 {\n  display: inline;\n  vertical-align: middle; }\n\nh3, h1 {\n  font-family: 'PT Sans', sans-serif;\n  margin: 0; }\n\nsvg {\n  width: 60px;\n  fill: #31c27c;\n  stroke-width: 2;\n  stroke: #fff;\n  stroke-linecap: round;\n  vertical-align: middle; }\n  svg :hover {\n    fill: #2aa268; }\n\n.nav a {\n  color: inherit;\n  text-decoration: none; }\n\n.nav {\n  border-radius: 20px;\n  padding: 4px;\n  margin-bottom: 20px;\n  box-shadow: 0 2px 10px #888;\n  display: flex;\n  justify-content: space-around; }\n\n.add {\n  border-radius: 20px;\n  padding: 4px 10px;\n  box-shadow: 0 2px 10px #888;\n  display: flex;\n  justify-content: space-around; }\n  .add .add-deal {\n    width: 48px;\n    height: 48px;\n    margin: 4px; }\n\n.input {\n  display: inline-block;\n  margin: 4px; }\n", ""]);
 
 // exports
 
@@ -1563,6 +1605,20 @@ module.exports = function (css) {
 
 /***/ }),
 /* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Router = __webpack_require__(11).default;
+var Layout = __webpack_require__(12).default;
+var Page = __webpack_require__(13).default;
+
+var r = new Router({
+  add: new Layout(new Page('add.html')),
+  search: new Layout(new Page('search.html')),
+  '#default': new Page('add.html')
+}, document.querySelector('main'));
+
+/***/ }),
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1653,7 +1709,7 @@ var Router = function () {
 /* harmony default export */ __webpack_exports__["default"] = (Router);
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1718,7 +1774,7 @@ var Layout = function () {
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1731,7 +1787,7 @@ var Page = function () {
   function Page(url) {
     _classCallCheck(this, Page);
 
-    this.url = 'views/' + url;
+    this.url = '../static/views/' + url;
   }
 
   _createClass(Page, [{

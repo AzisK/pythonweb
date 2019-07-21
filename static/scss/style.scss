@@ -1,5 +1,6 @@
 $main: #31c27c; 
 $main-hover: #2aa268;
+
 $shadow: #888;
 // Unused
 $border: #b2b8b5;
@@ -34,15 +35,22 @@ h3, h1 {
 }
 
 svg {
-  width: 60px;
+  width: 60px;    
   fill: $main;
   stroke-width: 2;
   stroke: #fff;
   stroke-linecap: round;
   vertical-align: middle;
-  
+
   :hover {
     fill: $main-hover;
+  }
+}
+
+.nav {
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 }
 
@@ -62,8 +70,10 @@ svg {
   display: flex;
   justify-content: space-around;
 
-  svg {
+  .add-deal {
     width: 48px;
+    height: 48px;
+    margin: 4px;
   }
 }
 

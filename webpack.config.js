@@ -1,10 +1,10 @@
 const path = require('path');
 
 module.exports = {
-  entry: ['babel-regenerator-runtime', './templates/js/main.js'],
+  entry: ['babel-regenerator-runtime', './static/js/app.js'],
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'templates/js')
+    path: path.resolve(__dirname, 'static/js')
   },
   watch: true,
   module: {
