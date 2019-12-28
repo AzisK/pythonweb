@@ -85,15 +85,11 @@ def invoice_add():
         pvm=form.pvm.data,
     )
 
-    print(invoice.__dict__)
-
     try:
-        # add department to the database
         db.session.add(invoice)
         db.session.commit()
         flash('You have successfully added a new invoice')
     except Exception as error:
-        # in case department name already exists
         flash(error)
 
     return redirect("/")
