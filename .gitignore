@@ -3,3 +3,4 @@ node_modules
 database.ini
 .venv
 __pycache__
+.idea
