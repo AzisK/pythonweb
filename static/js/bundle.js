@@ -961,7 +961,7 @@ __webpack_require__(10);
 
 var dateEl = document.getElementsByName("date")[0];
 var invoiceEl = document.getElementsByName("invoice")[0];
-var sumEl = document.getElementsByName("sum")[0];
+var sumEl = document.getElementsByName("suma")[0];
 var companyEl = document.getElementsByName("company")[0];
 var pvmEl = document.getElementsByName("pvm")[0];
 var els = [dateEl, invoiceEl, sumEl, companyEl, pvmEl];
@@ -1044,12 +1044,12 @@ if(false) {
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(7)(undefined);
+exports = module.exports = __webpack_require__(7)(false);
 // imports
 
 
 // module
-exports.push([module.i, "html {\n  position: relative;\n  height: 100%;\n  width: 100%; }\n\nbody {\n  height: 100%;\n  width: 100%;\n  margin: 0; }\n\n.main {\n  height: 100%;\n  width: 90%;\n  margin: auto;\n  padding-top: 30px; }\n\nh1 {\n  display: inline;\n  vertical-align: middle; }\n\nh3, h1 {\n  font-family: 'PT Sans', sans-serif;\n  margin: 0; }\n\nsvg {\n  width: 60px;\n  fill: #31c27c;\n  stroke-width: 2;\n  stroke: #fff;\n  stroke-linecap: round;\n  vertical-align: middle; }\n  svg :hover {\n    fill: #2aa268; }\n\n.nav a {\n  color: inherit;\n  text-decoration: none; }\n\n.nav {\n  border-radius: 20px;\n  padding: 4px;\n  margin-bottom: 20px;\n  box-shadow: 0 2px 10px #888;\n  display: flex;\n  justify-content: space-around; }\n\n.add {\n  border-radius: 20px;\n  padding: 4px 10px;\n  box-shadow: 0 2px 10px #888;\n  display: flex;\n  justify-content: space-around; }\n  .add .add-deal {\n    width: 48px;\n    height: 48px;\n    margin: 4px; }\n\n.input {\n  display: inline-block;\n  margin: 4px; }\n", ""]);
+exports.push([module.i, "html {\n  position: relative;\n  height: 100%;\n  width: 100%; }\n\nbody {\n  height: 100%;\n  width: 100%;\n  margin: 0; }\n\n.main {\n  height: 100%;\n  width: 90%;\n  margin: auto;\n  padding-top: 30px; }\n\nh1 {\n  display: inline;\n  vertical-align: middle; }\n\nh3, h1 {\n  font-family: 'PT Sans', sans-serif;\n  margin: 0; }\n\nsvg {\n  width: 60px;\n  fill: #31c27c;\n  stroke-width: 2;\n  stroke: #fff;\n  stroke-linecap: round;\n  vertical-align: middle; }\n  svg :hover {\n    fill: #2aa268; }\n\n.nav a {\n  color: inherit;\n  text-decoration: none; }\n\n.nav {\n  border-radius: 20px;\n  padding: 4px;\n  margin-bottom: 20px;\n  box-shadow: 0 2px 10px #888;\n  display: flex;\n  justify-content: space-around; }\n\n.add {\n  border-radius: 20px;\n  padding: 4px 10px;\n  box-shadow: 0 2px 10px #888;\n  display: flex;\n  justify-content: space-around; }\n  .add .add-deal {\n    width: 48px;\n    height: 48px;\n    margin: 4px; }\n\n.input {\n  display: inline-block;\n  margin: 4px; }\n\n.wrapper-button {\n  background: none;\n  border: none;\n  padding: 0; }\n", ""]);
 
 // exports
 
@@ -1206,7 +1206,7 @@ module.exports = function(list, options) {
 
 	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
 	// tags it will allow on a page
-	if (!options.singleton) options.singleton = isOldIE();
+	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
 
 	// By default, add <style> tags to the <head> element
 	if (!options.insertInto) options.insertInto = "head";

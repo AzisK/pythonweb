@@ -38,33 +38,39 @@
     </a>
   </div>
 
-  <div class="add">
+  <form class="add" action="/invoices/add/" method="post">
+    {{ form.hidden_tag() }}
+
+    <button class="wrapper-button">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="add-deal">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="12" y1="8" x2="12" y2="16"></line>
-          <line x1="8" y1="12" x2="16" y2="12"></line>
-      </svg>
-      <span class="input">
-          <h3>Data</h3>
-          <input type="date" name="date"> 
-      </span>
-      <span class="input">
-          <h3>Sąskaitos nr.</h3>
-          <input type="text" name="invoice"> 
-      </span>
-      <span class="input">
-          <h3>Įmonė</h3>
-          <input type="text" name="company"> 
-      </span>
-      <span class="input">
-          <h3>Suma</h3>
-          <input type="text" name="sum"> 
-      </span>
-      <span class="input">
-          <h3>PVM (21%)</h3>
-          <input type="text" name="pvm"> 
-      </span>
-  </div>
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="16"></line>
+        <line x1="8" y1="12" x2="16" y2="12"></line>
+      </svg> 
+    </button>
+    
+    <span class="input">
+      <h3>Data</h3>
+      <input type="date" name="date">
+    </span>
+    <span class="input">
+      <h3>Sąskaitos nr.</h3>
+      <input type="text" name="invoice">
+    </span>
+    <span class="input">
+      <h3>Įmonė</h3>
+      <input type="text" name="company">
+    </span>
+    <span class="input">
+      <h3>Suma</h3>
+      <input type="number" name="suma">
+    </span>
+    <span class="input">
+      <h3>PVM (21%)</h3>
+      <input type="number" name="pvm" step=0.01>
+    </span>
+
+  </form>
 
   <main></main>
   

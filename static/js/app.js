@@ -3,7 +3,7 @@ require('./main');
 
 var dateEl = document.getElementsByName("date")[0];
 var invoiceEl = document.getElementsByName("invoice")[0];
-var sumEl = document.getElementsByName("sum")[0];
+var sumEl = document.getElementsByName("suma")[0];
 var companyEl = document.getElementsByName("company")[0];
 var pvmEl = document.getElementsByName("pvm")[0];
 var els = [dateEl, invoiceEl, sumEl, companyEl, pvmEl];
